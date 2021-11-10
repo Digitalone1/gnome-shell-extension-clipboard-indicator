@@ -39,7 +39,7 @@ const readRegistry = Utils.readRegistry;
 let TIMEOUT_MS           = 1000;
 let MAX_REGISTRY_LENGTH  = 15;
 let MAX_ENTRY_LENGTH     = 50;
-let CACHE_ONLY_FAVORITE  = false;
+let CACHE_ONLY_FAVORITE  = true;
 let DELETE_ENABLED       = true;
 let MOVE_ITEM_FIRST      = false;
 let ENABLE_KEYBINDING    = true;
@@ -267,7 +267,7 @@ const ClipboardIndicator = Lang.Class({
         this._setEntryLabel(menuItem);
         this.clipItemsRadioGroup.push(menuItem);
 
-	// Favorite button
+    // Favorite button
         let icon_name = favorite ? 'starred-symbolic' : 'non-starred-symbolic';
         let iconfav = new St.Icon({
             icon_name: icon_name,
@@ -291,7 +291,7 @@ const ClipboardIndicator = Lang.Class({
             })
         );
 
-	// Delete button
+    // Delete button
         let icon = new St.Icon({
             icon_name: 'edit-delete-symbolic', //'mail-attachment-symbolic',
             style_class: 'system-status-icon'
@@ -336,7 +336,7 @@ const ClipboardIndicator = Lang.Class({
 
         this._updateCache();
     },
-  
+
     _confirmRemoveAll: function () {
         const title = _("Clear all?");
         const message = _("Are you sure you want to delete all clipboard items?");
